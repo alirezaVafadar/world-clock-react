@@ -25,7 +25,7 @@ function Clock(props) {
       <div className=''>            
       <div className=''>                    
         <header>
-        <div onClick={props.removeClick} className=''>×</div>
+        <Button onClick={props.removeClick} className=''>×</Button>
         <h5>
         {props.Country}        
         </h5>        

@@ -26,28 +26,25 @@ function App(props) {
       let index = updateClocks.findIndex(t => t.Timezone === zone);
       updateClocks.splice(index,1)
       setClocks(updateClocks);
+      console.log(clocks);
+      
     }
 
-    const optionItems = timezone.map((zone) =>
-    <option value={zone.Timezone} key={zone.Timezone} onChange={handleChange}>{zone.Country}-{zone.Timezone}</option>
-    );
-
-    const showClocks = clocks.map((zone) =>
-        <Clock {...zone} key={zone.Timezone} removeClick={()=>removeClick(zone.Timezone)} />
-    );
   return (
     <div className="">
                 <div>
                     <p> 
-                        <select className="" value={selectedClock} onChange={handleChange} >
-                            {optionItems}
+                        <select className="" value={selectedClock} onChange={handleChange}>
+                          {timezone.map((zone)=>{return(<option value={zone.Timezone} key={zone.Timezone} onChange={handleChange}>{zone.Country}-{zone.Timezone}</option>)})}
                         </select>
                     </p>
                     <p>
                         <button onClick={addTimeZone} className="">ADD CLOCK </button>
                     </p>
                 </div>
-                {showClocks}
+                <div>
+                  {clocks.map((zone=>{return(<Clock {...zone} key={zone.Timezone} removeClick={removeClick} />)}))}
+                </div>
             </div>
 
   );
