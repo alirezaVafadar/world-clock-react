@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Row, Col, Card } from 'react-bootstrap';
 
 function Clock(props) {
   
@@ -21,25 +21,25 @@ function Clock(props) {
   }
 
   return (
-    <div className=''>       
-      <div className=''>            
-      <div className=''>                    
-        <header>
-        <Button onClick={props.removeClick} className=''>×</Button>
-        <h5>
-        {props.Country}        
-        </h5>        
-        </header>                           
-      </div>                  
-      <div className=''>
-          <p>{time}</p>
-          <img height="60px" src={'https://flagicons.lipis.dev/flags/1x1/' + props.ISO.toLowerCase() + '.svg' } />
-      </div>
-      <footer className=''>
-          <h5>{props.Timezone}</h5>                            
-        </footer>
-      </div>
-      </div>
+    <Col xs={12} md={4}>
+      <Card className='card'>                             
+          <Card.Title className='coin-title'>
+            <Button onClick={props.removeClick} className=''>×</Button>
+          </Card.Title>
+            <Card.Body>
+              <h5>  
+              <img height="60px" src={'https://flagicons.lipis.dev/flags/1x1/' + props.ISO.toLowerCase() + '.svg' } /> 
+              {props.Country}     
+              </h5>                                            
+              <Row>
+                  <p>{time}</p>
+              </Row>
+                <Card.Text className=''>
+                  <h5>{props.Timezone}</h5>                            
+                </Card.Text>
+            </Card.Body> 
+        </Card>
+      </Col>
   );
 }
 
