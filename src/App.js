@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Clock from './Clock';
 import timezone from './timezone.json';
 import './App.css';
@@ -21,14 +21,11 @@ function App() {
     }
   }
 
-  const removeClick=(zone)=>
+  function removeClick(zone)
     {
-      let index = clocks.findIndex(t => t.Timezone === zone);
-      setClocks(clocks.splice(index,1));
-      console.log(clocks);
-      
+      const newClocks = clocks.filter(t => t.Timezone != zone);
+      setClocks(newClocks);
     }
-
   return (
     <React.Fragment>
       <NavbarComponent/>
@@ -43,7 +40,7 @@ function App() {
             </Col>
           </Row>
           <Row>
-            {clocks.map((zone=>{return(<Clock {...zone} key={zone.Timezone} removeClick={removeClick} />)}))}
+            {clocks.map(((zone)=>{return(<Clock {...zone} key={zone.Timezone} removeClick={()=>removeClick(zone.Timezone)} />)}))}
           </Row>
       </Container>
     </React.Fragment>

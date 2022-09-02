@@ -19,7 +19,6 @@ function Clock(props) {
     today.setMinutes(today.getMinutes() + today.getTimezoneOffset() + parseInt(props.Offset));
     return today.toLocaleString();
   }
-
   return (
     <Col xs={12} md={4}>
       <Card className='card'>                             
@@ -28,7 +27,7 @@ function Clock(props) {
           </Card.Title>
             <Card.Body>
               <h5>  
-              <img height="60px" src={'https://flagicons.lipis.dev/flags/1x1/' + props.ISO.toLowerCase() + '.svg' } /> 
+              <img height="60px" src={'https://flagicons.lipis.dev/flags/1x1/' +props.ISO.toLowerCase()+ '.svg' } /> 
               {props.Country}     
               </h5>                                            
               <Row>
