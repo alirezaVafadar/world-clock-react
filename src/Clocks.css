@@ -1,0 +1,37 @@
+.card{
+    background-color: #212529 !important;
+    margin-bottom: 20px;
+    height: 300px;
+    max-height: 300px;
+    border-radius: 10px !important;
+    transition: all ease 0.25s;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+.first-row{
+    margin-bottom: 40px;
+}
+.clock-col{
+    display: flex;
+    align-content: center;
+    align-self: center;
+}
+.time-col{
+    align-content: center;
+    text-align: center;
+    align-self: center;
+}
+.country-col{
+    align-content: center;
+    align-self: center;
+    text-align: center;
+}
+.flag-col{
+    align-content: center;
+    align-self: center;
+}
+.clock-style{
+    background-color: blanchedalmond;
+    border-radius: 50px;
+}

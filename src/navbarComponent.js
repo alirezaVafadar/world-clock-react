@@ -33,13 +33,13 @@ function NavbarComponent(){
                     alt="React Bootstrap logo"
                     />
                 </Navbar.Brand>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="https://alirezavafadar.dev">
                     <img
                     src="/website.png"
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
-                    alt="React Bootstrap logo"
+                    alt="website logo"
                     />
                 </Navbar.Brand>
                 </Nav>

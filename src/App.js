@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Clock from './Clock';
+import Clocks from './Clocks';
 import timezone from './timezone.json';
 import './App.css';
 import { Container, Row, Col, Form, Button} from 'react-bootstrap';
@@ -29,18 +29,18 @@ function App() {
   return (
     <React.Fragment>
       <NavbarComponent/>
-      <Container>
-          <Row>
-            <Col  xs={10} md={6}>
-              <h1 className='head'>World Clock</h1>
-              <Form.Select aria-label="Default select example" value={selectedClock} onChange={handleChange}>
-                {timezone.map((zone)=>{return(<option value={zone.Timezone} key={zone.Timezone} onChange={handleChange}>{zone.Country}-{zone.Timezone}</option>)})}
+      <Container >
+          <Row className='justify-center'>
+          <h1 className='head'>World Clock</h1>
+            <Col  xs={12} md={8} className='justify-center'>
+              <Form.Select className='select' aria-label="Default select example" value={selectedClock} onChange={handleChange}>
+                {timezone.map((zone)=>{return(<option className='select' value={zone.Timezone} key={zone.Timezone} onChange={handleChange}>{zone.Country}-{zone.Timezone}</option>)})}
               </Form.Select>
-              <Button onClick={addTimeZone} className="">ADD CLOCK </Button>
+              <Button onClick={addTimeZone} className="add-button">ADD CLOCK </Button>
             </Col>
           </Row>
           <Row>
-            {clocks.map(((zone)=>{return(<Clock {...zone} key={zone.Timezone} removeClick={()=>removeClick(zone.Timezone)} />)}))}
+            {clocks.map(((zone)=>{return(<Clocks {...zone} key={zone.Timezone} removeClick={()=>removeClick(zone.Timezone)} />)}))}
           </Row>
       </Container>
     </React.Fragment>
